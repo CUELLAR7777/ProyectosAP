@@ -1,0 +1,29 @@
+:root {
+    --color-primary: #ff0000; /* Rojo */
+    --color-secondary: #ffffff; /* Blanco */
+    --font-family: 'Arial', sans-serif;
+    --font-size-base: 16px;
+    --font-size-large: 20px;
+    --font-size-small: 14px;
+    --padding-base: 10px;
+    --margin-base: 10px;
+    --red:#c62828;
+    --red-700:#b71c1c;
+    --white:#ffffff;
+    --muted:#6b6b6b;
+    --bg:#fafafa;
+    --card-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    --radius:12px;
+    --max-width:980px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,var(--white),var(--bg));
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:var(--red);text-decoration:none}

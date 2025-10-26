@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registro - Seguimiento Graduados ULEAM</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="../js/validators.js"></script>
+    <script src="../js/auth.js" defer></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="auth-page">
+        <form id="registerForm" class="card auth-card" novalidate>
+            <h2>Crear Cuenta</h2>
+            <p class="muted">Completa los datos para el seguimiento. Los campos con * son obligatorios.</p>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Nombre *</label>
+                    <input id="name" name="name" type="text" required>
+                    <span id="nameError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Apellido *</label>
+                    <input id="surname" name="surname" type="text" required>
+                    <span id="surnameError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula">Cédula *</label>
+                    <input id="cedula" name="cedula" type="text" maxlength="10" required>
+                    <span id="cedulaError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input id="telefono" name="telefono" type="tel" placeholder="+593 9xxxxxxxx" required>
+                    <span id="telefonoError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="carrera">Carrera *</label>
+                    <input id="carrera" name="carrera" type="text" placeholder="Ingeniería, Derecho, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="anioGraduacion">Año de graduación *</label>
+                    <input id="anioGraduacion" name="anioGraduacion" type="number" placeholder="2020" min="1950" max="2100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de nacimiento *</label>
+                    <input id="fechaNacimiento" name="fechaNacimiento" type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                        <option value="">No especificar</option>
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn (opcional)</label>
+                    <input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/usuario">
+                </div>
+
+                <div class="form-group full">
+                    <label for="direccion">Dirección (opcional)</label>
+                    <input id="direccion" name="direccion" type="text" placeholder="Ciudad, provincia">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo institucional *</label>
+                <input id="email" name="email" type="email" placeholder="tu@uleam.edu.ec" required>
+                <span id="emailError" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña *</label>
+                <input id="password" name="password" type="password" required>
+                <span id="passwordError" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar contraseña *</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" required>
+                <span id="confirmPasswordError" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Rol *</label>
+                <select id="role" name="role" required>
+                    <option value="">Selecciona un rol</option>
+                    <option>Egresado</option>
+                    <option>Coordinador</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <a class="btn btn-link" href="login.html">Ya tengo cuenta</a>
+            </div>
+
+            <p id="regError" class="form-error" aria-live="polite"></p>
+            <p id="regSuccess" class="form-success" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script>
+        // cargar header/footer y ejecutar inicializadores si existen
+        fetch('./components/header.html').then(r=>r.text()).then(t=>{ document.getElementById('header').innerHTML=t; if(window.initHeader) window.initHeader(); });
+        fetch('./components/footer.html').then(r=>r.text()).then(t=>{ document.getElementById('footer').innerHTML=t; if(window.initFooter) window.initFooter(); });
+    </script>
+</body>
+</html>

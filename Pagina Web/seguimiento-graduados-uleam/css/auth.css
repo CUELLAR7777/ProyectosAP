@@ -1,0 +1,131 @@
+@import url('variables.css');
+
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: red;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px);
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    margin: auto;
+}
+
+/* grid para campos */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.form-group {display: flex;flex-direction: column;gap: 6px}
+.form-group.full {grid-column: 1 / -1}
+
+.auth-card h2 {margin: 0 0 8px 0;color: var(--red)}
+.auth-card label {font-size: 0.9rem;color: var(--muted)}
+.auth-card input, .auth-card select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+/* botones y textos */
+.form-row {display: flex;gap: 8px;align-items: center;justify-content: flex-start;margin-top: 8px}
+.form-error {color: #b00020;margin-top: 6px}
+.form-success {color: #2e7d32;margin-top: 6px}
+.muted {color: var(--muted);font-size: 0.85rem;margin-top: 6px}
+
+/* Agregar al final del archivo */
+.form-error {
+    color: #b00020;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.input-error {
+    border-color: #b00020 !important;
+    background-color: #fff5f5;
+}
+
+.error-message {
+    color: #b00020;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+    min-height: 1em;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* responsive */
+@media(max-width:780px){
+  .form-grid{grid-template-columns:1fr}
+  .auth-card{padding:18px}
+}

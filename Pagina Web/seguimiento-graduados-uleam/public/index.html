@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento a Graduados - ULEAM</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="../js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div id="header"></div>
+    </header>
+
+    <main class="hero">
+        <div class="hero-card">
+            <img src="LOGO-ULEAM-VERTICAL.png" alt="ULEAM" class="logo" onerror="this.style.display='none'">
+            <h1>Seguimiento a Graduados - ULEAM</h1>
+            <p>Plataforma para el registro y seguimiento de egresados. Inicia sesión según tu rol.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="login.html">Iniciar Sesión</a>
+                <a class="btn btn-outline" href="register.html">Registrarse</a>
+            </div>
+            <small class="muted">Roles: Egresado, Coordinador</small>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script>
+        // carga header y footer y notifica al JS de la app para inicializar dinámicas
+        fetch('./components/header.html').then(r=>r.text()).then(t=>{ document.getElementById('header').innerHTML=t; if(window.initHeader) window.initHeader(); });
+        fetch('./components/footer.html').then(r=>r.text()).then(t=>{ document.getElementById('footer').innerHTML=t; if(window.initFooter) window.initFooter(); });
+    </script>
+</body>
+</html>
