@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Coordinador - ULEAM</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/auth.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/logo-uleam.png" alt="ULEAM">
+            </div>
+            <nav class="nav-menu">
+                <a href="#pendientes" class="nav-item active">
+                    <i class="fas fa-clock"></i> Pendientes
+                </a>
+                <a href="#egresados" class="nav-item">
+                    <i class="fas fa-users"></i> Egresados
+                </a>
+                <a href="#estadisticas" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Estadísticas
+                </a>
+                <a href="#encuestas" class="nav-item">
+                    <i class="fas fa-poll"></i> Gestión Encuestas
+                </a>
+                <button id="logout" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Panel de Coordinador</h1>
+                <div class="user-info">
+                    <span id="userName">Nombre del Coordinador</span>
+                </div>
+            </header>
+
+            <!-- Secciones dinámicas -->
+            <div class="content-area">
+                <!-- Sección Pendientes -->
+                <section id="pendientes" class="dashboard-section active">
+                    <h2>Registros Pendientes</h2>
+                    <div class="pending-list">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Carrera</th>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingTableBody">
+                                <!-- Se llena dinámicamente con JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Sección Egresados -->
+                <section id="egresados" class="dashboard-section">
+                    <h2>Lista de Egresados</h2>
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar..." id="searchEgresados">
+                        <select id="filterCarrera">
+                            <option value="">Todas las carreras</option>
+                        </select>
+                        <select id="filterAnio">
+                            <option value="">Todos los años</option>
+                        </select>
+                    </div>
+                    <div class="graduates-list">
+                        <!-- Se llena dinámicamente con JS -->
+                    </div>
+                </section>
+
+                <!-- Sección Estadísticas -->
+                <section id="estadisticas" class="dashboard-section">
+                    <h2>Estadísticas y Reportes</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Empleabilidad</h3>
+                            <div class="chart-container">
+                                <!-- Gráficos se generan con JS -->
+                            </div>
+                        </div>
+                        <!-- Más cards de estadísticas -->
+                    </div>
+                </section>
+
+                <!-- Sección Gestión de Encuestas -->
+                <section id="encuestas" class="dashboard-section">
+                    <h2>Gestión de Encuestas</h2>
+                    <button class="btn btn-primary" onclick="crearEncuesta()">
+                        Nueva Encuesta
+                    </button>
+                    <div class="surveys-management">
+                        <!-- Lista de encuestas activas -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

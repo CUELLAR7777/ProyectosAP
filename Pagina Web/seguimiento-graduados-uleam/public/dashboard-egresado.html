@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Egresado - ULEAM</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/auth.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/logo-uleam.png" alt="ULEAM">
+            </div>
+            <nav class="nav-menu">
+                <a href="#perfil" class="nav-item active">
+                    <i class="fas fa-user"></i> Mi Perfil
+                </a>
+                <a href="#encuestas" class="nav-item">
+                    <i class="fas fa-poll"></i> Encuestas
+                </a>
+                <a href="#empleabilidad" class="nav-item">
+                    <i class="fas fa-briefcase"></i> Estado Laboral
+                </a>
+                <a href="#capacitacion" class="nav-item">
+                    <i class="fas fa-graduation-cap"></i> Capacitaciones
+                </a>
+                <button id="logout" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Panel de Egresado</h1>
+                <div class="user-info">
+                    <span id="userName">Nombre del Egresado</span>
+                </div>
+            </header>
+
+            <!-- Secciones dinámicas -->
+            <div class="content-area">
+                <!-- Sección Perfil -->
+                <section id="perfil" class="dashboard-section active">
+                    <h2>Mi Perfil</h2>
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <!-- Se llena dinámicamente con JS -->
+                        </div>
+                        <button class="btn btn-primary" onclick="editarPerfil()">
+                            Editar Información
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Sección Encuestas -->
+                <section id="encuestas" class="dashboard-section">
+                    <h2>Encuestas Pendientes</h2>
+                    <div class="surveys-list">
+                        <!-- Se llena dinámicamente con JS -->
+                    </div>
+                </section>
+
+                <!-- Sección Empleabilidad -->
+                <section id="empleabilidad" class="dashboard-section">
+                    <h2>Información Laboral</h2>
+                    <form id="empleabilidadForm" class="employment-form">
+                        <!-- Campos de estado laboral -->
+                    </form>
+                </section>
+
+                <!-- Sección Capacitaciones -->
+                <section id="capacitacion" class="dashboard-section">
+                    <h2>Mis Capacitaciones</h2>
+                    <div class="training-list">
+                        <!-- Se llena dinámicamente con JS -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

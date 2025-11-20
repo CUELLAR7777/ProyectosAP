@@ -1,0 +1,16 @@
+<footer>
+    <div class="footer-content">
+        <p>&copy; <span id="year"></span> ULEAM - Seguimiento a Graduados</p>
+    </div>
+
+    <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="register.html">Registrarse</a></li>
+        <li><a href="dashboard.html">Panel de Control</a></li>
+    </ul>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>

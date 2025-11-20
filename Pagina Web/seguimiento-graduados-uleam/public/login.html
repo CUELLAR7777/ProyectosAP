@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Iniciar Sesión - Seguimiento Graduados ULEAM</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="../js/auth.js" defer></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="auth-page">
+        <form id="loginForm" class="card auth-card" novalidate>
+            <h2>Iniciar Sesión</h2>
+
+            <label for="loginEmail">Correo</label>
+            <input id="loginEmail" name="email" type="email" placeholder="tu@uleam.edu.ec" required>
+
+            <label for="loginPassword">Contraseña</label>
+            <input id="loginPassword" name="password" type="password" placeholder="mín. 6 caracteres" required>
+
+            <label for="loginRole">Rol</label>
+            <select id="loginRole" name="role" required>
+                <option value="">Selecciona un rol</option>
+                <option>Egresado</option>
+                <option>Coordinador</option>
+            </select>
+
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <a class="btn btn-link" href="register.html">Crear cuenta</a>
+            </div>
+
+            <p id="loginError" class="form-error" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script>
+        // cargar header/footer
+        fetch('./components/header.html').then(r=>r.text()).then(t=>document.getElementById('header').innerHTML=t);
+        fetch('./components/footer.html').then(r=>r.text()).then(t=>document.getElementById('footer').innerHTML=t);
+    </script>
+</body>
+</html>
