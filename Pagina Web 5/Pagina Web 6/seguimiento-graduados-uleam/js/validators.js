@@ -34,8 +34,9 @@ function validateRegisterForm() {
         valid = false;
     }
 
-    if (!validateEmail(email)) {
-        showError('register-email', 'Por favor, ingrese un correo electrónico válido.');
+    // Cambiado: ahora exige @gmail.com al crear la cuenta
+    if (!email.endsWith('@gmail.com')) {
+        showError('register-email', 'Debe usar correo @gmail.com.');
         valid = false;
     }
 
@@ -90,8 +91,9 @@ const validations = {
         return digitoVerificador === verificador;
     },
     
+    // Cambiado: validación específica para @gmail.com
     email: (value) => {
-        return /^[a-zA-Z0-9._-]+@uleam\.edu\.ec$/.test(value);
+        return /^[a-zA-Z0-9._-]+@gmail\.com$/.test(value);
     },
     
     telefono: (value) => {
@@ -142,10 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Validar email
+        // Cambiado: ahora exige @gmail.com
         const email = document.getElementById('email').value;
-        if (!email.endsWith('@uleam.edu.ec')) {
-            showError('email', 'Debe usar correo @uleam.edu.ec');
+        if (!email.endsWith('@gmail.com')) {
+            showError('email', 'Debe usar correo @gmail.com');
             isValid = false;
         }
 

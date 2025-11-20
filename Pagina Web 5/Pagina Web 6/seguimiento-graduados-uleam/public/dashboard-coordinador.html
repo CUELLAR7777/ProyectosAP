@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="../js/auth.js" defer></script>
+    <script src="../js/capacitaciones.js" defer></script>
+    
 </head>
 <body>
+    <header id="header"></header>
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <img src="../assets/logo-uleam.png" alt="ULEAM">
+                <img src="LOGO-ULEAM-VERTICAL.png" alt="ULEAM">
             </div>
             <nav class="nav-menu">
                 <a href="#pendientes" class="nav-item active">
@@ -26,8 +29,14 @@
                 <a href="#estadisticas" class="nav-item">
                     <i class="fas fa-chart-bar"></i> Estadísticas
                 </a>
+                <a href="#capacitaciones" class="nav-item">
+                    <i class="fas fa-chalkboard-teacher"></i> Capacitaciones
+                </a>
                 <a href="#encuestas" class="nav-item">
                     <i class="fas fa-poll"></i> Gestión Encuestas
+                </a>
+                <a href="#respuestas" class="nav-item">
+                    <i class="fas fa-reply-all"></i> Respuestas
                 </a>
                 <button id="logout" class="nav-item logout">
                     <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
@@ -38,10 +47,14 @@
         <!-- Contenido principal -->
         <main class="main-content">
             <header class="top-bar">
-                <h1>Panel de Coordinador</h1>
                 <div class="user-info">
-                    <span id="userName">Nombre del Coordinador</span>
+                    <div class="avatar" id="userAvatar">C</div>
+                    <div class="meta">
+                        <span id="userRole" class="user-role">Coordinador</span>
+                        <span id="userName" class="user-name">Nombre del Coordinador</span>
+                    </div>
                 </div>
+                <h1>Panel de Coordinador</h1>
             </header>
 
             <!-- Secciones dinámicas -->
@@ -78,6 +91,7 @@
                         <select id="filterAnio">
                             <option value="">Todos los años</option>
                         </select>
+                        <button id="refreshGraduatesBtn" class="btn btn-outline" style="margin-left:8px">Refrescar lista</button>
                     </div>
                     <div class="graduates-list">
                         <!-- Se llena dinámicamente con JS -->
@@ -87,29 +101,66 @@
                 <!-- Sección Estadísticas -->
                 <section id="estadisticas" class="dashboard-section">
                     <h2>Estadísticas y Reportes</h2>
+                    <div style="margin-bottom:8px">
+                        <button id="exportStatsBtn" class="btn btn-outline">Exportar CSV</button>
+                        <button id="editStatsBtn" class="btn btn-link">Editar estadísticas</button>
+                    </div>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <h3>Empleabilidad</h3>
-                            <div class="chart-container">
-                                <!-- Gráficos se generan con JS -->
-                            </div>
+                            <h3>Total usuarios</h3>
+                            <div id="stat_totalUsers" class="stat-value">-</div>
                         </div>
-                        <!-- Más cards de estadísticas -->
+                        <div class="stat-card">
+                            <h3>Usuarios aprobados</h3>
+                            <div id="stat_approved" class="stat-value">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Registros pendientes</h3>
+                            <div id="stat_pending" class="stat-value">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Empleabilidad (%)</h3>
+                            <div id="stat_employed_pct" class="stat-value">-</div>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Sección Gestión de Encuestas -->
                 <section id="encuestas" class="dashboard-section">
                     <h2>Gestión de Encuestas</h2>
-                    <button class="btn btn-primary" onclick="crearEncuesta()">
-                        Nueva Encuesta
-                    </button>
-                    <div class="surveys-management">
-                        <!-- Lista de encuestas activas -->
+                    <button class="btn btn-primary btn-new-survey" type="button" onclick="crearEncuesta()">Nueva Encuesta</button>
+                    <div id="encuestasList" class="encuestas-list" style="margin-top:12px">
+                        <!-- aquí renderiza JS (renderEncuestas) -->
+                    </div>
+                </section>
+
+                <!-- Sección Capacitaciones -->
+                <section id="capacitaciones" class="dashboard-section">
+                    <h2>Capacitaciones</h2>
+                    <button class="btn btn-primary btn-new-cap" onclick="crearCapacitacion()">Nueva Capacitacion</button>
+                    <div id="capacitacionesList" class="capacitaciones-list" style="margin-top:12px">
+                        <!-- Renderizado dinámico por JS -->
+                    </div>
+                </section>
+
+                <!-- Sección Respuestas recibidas -->
+                <section id="respuestas" class="dashboard-section">
+                    <h2>Respuestas recibidas</h2>
+                    <div style="margin-bottom:8px">
+                        <button id="exportResponsesBtn" class="btn btn-outline">Exportar respuestas (CSV)</button>
+                        <button id="clearResponsesBtn" class="btn btn-outline" style="margin-left:8px">Limpiar respuestas</button>
+                    </div>
+                    <div id="responsesList">
+                        <!-- Aquí se almacenan y muestran las respuestas enviadas por los egresados -->
                     </div>
                 </section>
             </div>
         </main>
     </div>
+    <footer id="footer"></footer>
+    <script>
+        fetch('./components/header.html').then(r=>r.text()).then(t=>{ document.getElementById('header')?.innerHTML = t; if(window.initHeader) window.initHeader(); });
+        fetch('./components/footer.html').then(r=>r.text()).then(t=>{ document.getElementById('footer')?.innerHTML = t; if(window.initFooter) window.initFooter(); });
+    </script>
 </body>
 </html>
